@@ -1,25 +1,25 @@
-# version: '3'
-
-# services:
-#   flaskapp:
-#     build: ./flaskapp-docker
-#     image: flaskapp:latest
-#     container_name: flaskapp
-#     network_mode: host
-
-  # nginx:
-  #   build: ./nginx
-  #   image: nginx:latest
-  #   container_name: nginx
-  #   network_mode: host
-
 version: '3'
 
 services:
   flaskapp:
     build: ./flaskapp-docker
-    image: flaskapp:v1  # Use a specific tag
+    image: flaskapp:latest
     container_name: flaskapp
-    ports:
-      - "8000:8000"  # Map port 8000
+    network_mode: host
+
+  nginx:
+    build: ./nginx
+    image: nginx:latest
+    container_name: nginx
+    network_mode: host
+
+# version: '3'
+
+# services:
+#   flaskapp:
+#     build: ./flaskapp-docker
+#     image: flaskapp:v1  # Use a specific tag
+#     container_name: flaskapp
+#     ports:
+#       - "8000:8000"  # Map port 8000
 
