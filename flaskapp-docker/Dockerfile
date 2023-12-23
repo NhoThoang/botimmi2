@@ -1,8 +1,11 @@
 FROM python:3.11
 
 RUN apt-get update -y
-RUN apt-get install python3-pip -y
-RUN apt-get install gunicorn3 -y
+RUN apt-get install -y \
+    python3-pip \
+    gunicorn3 \
+    libmysqlclient-dev \
+    pkg-config
 
 COPY requirements.txt requirements.txt
 COPY flaskapp /opt/
@@ -11,6 +14,22 @@ RUN pip3 install -r requirements.txt
 WORKDIR /opt/
 
 CMD ["gunicorn", "-b", "0.0.0.0:8000", "app:app", "--workers=5"]
+
+
+
+# FROM python:3.11
+
+# RUN apt-get update -y
+# RUN apt-get install python3-pip -y
+# RUN apt-get install gunicorn3 -y
+
+# COPY requirements.txt requirements.txt
+# COPY flaskapp /opt/
+
+# RUN pip3 install -r requirements.txt
+# WORKDIR /opt/
+
+# CMD ["gunicorn", "-b", "0.0.0.0:8000", "app:app", "--workers=5"]
 
 
 
