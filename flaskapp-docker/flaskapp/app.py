@@ -31,9 +31,9 @@ class mysql_data:
         cursor.close()
 
 
-host = "localhost"
-user = "root"
-password = "123456"
+host = "database-1.cjayq20e0zlv.ap-southeast-1.rds.amazonaws.com"
+user = "admin"
+password = "12345678"
 database_name = "user_data"
 table_name = "customers"
 
@@ -190,4 +190,4 @@ def logout():
     return redirect(url_for('login'))
 
 if __name__=="__main__":
-    app.run(debug=True, port=5000)
+    app.run(debug=True)
